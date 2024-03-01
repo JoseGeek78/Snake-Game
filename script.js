@@ -19,7 +19,6 @@ canvas.height = 380;
 
 let play = false;
 let scoreP = 0;
-//YT: jhampier_
 class Apple{
     constructor(position,radio,color,context){
         this.position = position;
