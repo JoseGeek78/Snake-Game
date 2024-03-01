@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-// Tutorial: https://youtu.be/Sl6YUIvwbAk
+
 
 const menu = document.querySelector(".menu");
 const score = document.querySelector(".score");
