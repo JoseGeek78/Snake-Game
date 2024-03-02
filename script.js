@@ -251,9 +251,9 @@ class Snake{
         });
     }
 }
-const snake = new Snake({x:200,y:200},11,"#FEBA39",1.5,3,12,ctx);
+const snake = new Snake({x:200,y:200},11,"#3366FF",1.5,3,12,ctx);
 snake.initBody();
-const snakeP1 = new Snake({x:165,y:40},11,"#FEBA39",1.5,8,12,ctx2);
+const snakeP1 = new Snake({x:165,y:40},11,"#3366FF",1.5,8,12,ctx2);
 snakeP1.initBody();
 snakeP1.drawCharacter();
 const snakeP2 = new Snake({x:165,y:40},11,"#88FC03",1.5,24,4,ctx3);
