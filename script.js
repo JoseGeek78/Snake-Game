@@ -262,7 +262,7 @@ snakeP2.drawCharacter();
 const apple = new Apple({x:300,y:300},8,"red",ctx);
 
 canvas2.addEventListener("click",()=>{
-    init(3,12,"#FEBA39");
+    init(3,12,"#3366FF");
 });
 canvas3.addEventListener("click",()=>{
     init(8,4,"#88FC03");
