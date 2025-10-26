@@ -1,44 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake-Game</title>
-  <link rel="icon" type="image/x-icon" href="imagenes/icons8-serpiente-96.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake-Game</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/icons8-serpiente-96.png" />
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Marcador principal -->
-    <div class="scoreboard">
-      <div>Puntuación: <span id="score">0</span></div>
-      <div class="highscore">Récord: <span id="highscore">0</span> (<span id="playername">-</span>)</div>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        <span class="score">0</span>
+        <div class="menu">
+            <h2>SNAKE</h2>
+            <div class="characters">
+                <canvas id="snake-1"></canvas>
+                <canvas id="snake-2"></canvas>
+            </div>
+            <p>Elige tu Snake / Para mover: A - D</p>
+        </div>
     </div>
-
-    <!-- Lienzo principal del juego -->
-    <canvas id="canvas"></canvas>
-
-    <!-- Menú lateral -->
-    <div class="menu">
-      <h2>SNAKE</h2>
-      <div class="characters">
-        <canvas id="snake-1"></canvas>
-        <canvas id="snake-2"></canvas>
-      </div>
-      <p>Elige tu Snake / Para mover: A - D</p>
-    </div>
-  </div>
-
-  <!-- Modal para guardar nombre del jugador -->
-  <div class="modal" id="saveModal">
-    <div class="modal-content">
-      <h3>🎉 ¡Nuevo récord!</h3>
-      <p>Introduce tu nombre:</p>
-      <input type="text" id="playerInput" maxlength="20" placeholder="Tu nombre..." />
-      <button id="saveBtn">Guardar</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  
+    <script src="/script.js"></script>
 </body>
 </html>
