@@ -19,6 +19,38 @@ canvas.height = 380;
 let play = false;
 let scoreP = 0;
 
+// === 🏆 SISTEMA DE HIGH SCORE ===
+let highScoreData = JSON.parse(localStorage.getItem('snakeHighScore')) || { name: "-", score: 0 };
+
+// Crear visual del récord si no existe en el HTML
+let highScoreBox = document.createElement("div");
+highScoreBox.className = "highscore-box";
+highScoreBox.innerHTML = `
+  <p><strong>🏆 High Score:</strong> <span id="highscore-name">${highScoreData.name}</span> - <span id="highscore-value">${highScoreData.score}</span></p>
+  <input id="player-name" placeholder="Tu nombre" maxlength="15" style="margin-top:8px; padding:4px; border-radius:6px; border:none; text-align:center;">
+`;
+document.querySelector(".container").insertBefore(highScoreBox, menu);
+
+const highscoreNameEl = document.getElementById("highscore-name");
+const highscoreValueEl = document.getElementById("highscore-value");
+const playerInput = document.getElementById("player-name");
+
+function updateHighScoreDisplay() {
+  highscoreNameEl.textContent = highScoreData.name;
+  highscoreValueEl.textContent = highScoreData.score;
+}
+
+function checkHighScore() {
+  if (scoreP > highScoreData.score) {
+    const playerName = playerInput.value.trim() || "Anónimo";
+    highScoreData = { name: playerName, score: scoreP };
+    localStorage.setItem('snakeHighScore', JSON.stringify(highScoreData));
+    updateHighScoreDisplay();
+  }
+}
+// === FIN HIGH SCORE ===
+
+
 class Apple {
     constructor(position, radio, color, context) {
         this.position = position;
@@ -54,6 +86,7 @@ class Apple {
             snake.createBody();
             scoreP++;
             score.textContent = scoreP;
+            checkHighScore(); // 👈 Se comprueba cada vez que sube el puntaje
         }
     }
 }
@@ -170,12 +203,10 @@ class Snake {
     }
     draw() {
         this.context.save();
-
         this.context.translate(this.position.x, this.position.y);
         this.context.rotate(this.rotation);
         this.context.translate(-this.position.x, -this.position.y);
         this.drawHead();
-
         this.context.restore();
     }
     update() {
@@ -315,3 +346,4 @@ function update() {
     requestAnimationFrame(update);
 }
 update();
+
